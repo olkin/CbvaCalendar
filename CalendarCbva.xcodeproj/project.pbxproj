@@ -23,6 +23,8 @@
 		9321061016CE1B0C0097BCBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932105EB16CE1B0C0097BCBB /* Foundation.framework */; };
 		9321061816CE1B0C0097BCBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9321061616CE1B0C0097BCBB /* InfoPlist.strings */; };
 		9321061B16CE1B0C0097BCBB /* CalendarCbvaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321061A16CE1B0C0097BCBB /* CalendarCbvaTests.m */; };
+		9321062616CE1B2B0097BCBB /* Events.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9321062416CE1B2B0097BCBB /* Events.plist */; };
+		9321062716CE1B2B0097BCBB /* EventsCalendar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9321062516CE1B2B0097BCBB /* EventsCalendar.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		9321061716CE1B0C0097BCBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9321061916CE1B0C0097BCBB /* CalendarCbvaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarCbvaTests.h; sourceTree = "<group>"; };
 		9321061A16CE1B0C0097BCBB /* CalendarCbvaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarCbvaTests.m; sourceTree = "<group>"; };
+		9321062416CE1B2B0097BCBB /* Events.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Events.plist; sourceTree = "<group>"; };
+		9321062516CE1B2B0097BCBB /* EventsCalendar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EventsCalendar.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 		932105F016CE1B0C0097BCBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9321062416CE1B2B0097BCBB /* Events.plist */,
+				9321062516CE1B2B0097BCBB /* EventsCalendar.plist */,
 				932105F116CE1B0C0097BCBB /* CalendarCbva-Info.plist */,
 				932105F216CE1B0C0097BCBB /* InfoPlist.strings */,
 				932105F516CE1B0C0097BCBB /* main.m */,
@@ -236,6 +242,8 @@
 				932105FE16CE1B0C0097BCBB /* Default@2x.png in Resources */,
 				9321060016CE1B0C0097BCBB /* Default-568h@2x.png in Resources */,
 				9321060316CE1B0C0097BCBB /* MainStoryboard.storyboard in Resources */,
+				9321062616CE1B2B0097BCBB /* Events.plist in Resources */,
+				9321062716CE1B2B0097BCBB /* EventsCalendar.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

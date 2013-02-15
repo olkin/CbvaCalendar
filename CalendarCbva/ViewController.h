@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
+@property (nonatomic, retain)  NSDate *curDate;
+
+-(void) changeLabelDates;
+
+- (IBAction)nextDayTouched;
+- (IBAction)prevDayTouched;
 
 @end

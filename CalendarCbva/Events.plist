@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Event ID</key>
+		<integer>1</integer>
+		<key>Event Name</key>
+		<string>League Co-ed 2s</string>
+		<key>Event Short Name</key>
+		<string>C2</string>
+	</dict>
+	<dict>
+		<key>Event ID</key>
+		<integer>0</integer>
+		<key>Event Name</key>
+		<string>League Co-ed 3s</string>
+		<key>Event Short Name</key>
+		<string>C3</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>2</integer>
+		<key>Event Name</key>
+		<string>League Co-ed 4s</string>
+		<key>Event Short Name</key>
+		<string>C4</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>3</integer>
+		<key>Event Name</key>
+		<string>League W 2s</string>
+		<key>Event Short Name</key>
+		<string>W2</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>4</integer>
+		<key>Event Name</key>
+		<string>League M 2s</string>
+		<key>Event Short Name</key>
+		<string>M2</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>5</integer>
+		<key>Event Name</key>
+		<string>Drop-in</string>
+		<key>Event Short Name</key>
+		<string>Drop-in</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>6</integer>
+		<key>Event Name</key>
+		<string>AVA tour</string>
+		<key>Event Short Name</key>
+		<string>AVA</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>7</integer>
+		<key>Event Name</key>
+		<string>AVA Youth</string>
+		<key>Event Short Name</key>
+		<string>AVA Youth</string>
+	</dict>
+    <dict>
+		<key>Event ID</key>
+		<integer>8</integer>
+		<key>Event Name</key>
+		<string>Holiday</string>
+		<key>Event Short Name</key>
+		<string>Holiday</string>
+	</dict>
+</array>
+</plist>
