@@ -12,8 +12,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
 @property (nonatomic, retain)  NSDate *curDate;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 -(void) changeLabelDates;
+-(void) changeResults;
+-(bool) isEqualWithoutTime:(NSDate *)date1 toDate:(NSDate *)date2;
 
 - (IBAction)nextDayTouched;
 - (IBAction)prevDayTouched;
