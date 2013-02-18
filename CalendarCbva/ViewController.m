@@ -61,8 +61,7 @@
         
         if ([self isEqualWithoutTime:eventDate toDate:_curDate])
         {
-            NSString *eventId = [[[newArray objectAtIndex:i]objectForKey:@"Calendar Event id"] stringValue];
-            [_resultArray addObject:eventId];
+            [_resultArray addObject:[newArray objectAtIndex:i]];
         }
     }
     
@@ -114,7 +113,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = (NSString *)[_resultArray objectAtIndex:indexPath.row];
+    NSDictionary *result = (NSDictionary*)[_resultArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[result objectForKey:@"event id"] stringValue];
+    cell.detailTextLabel.text = (NSString*)[result objectForKey:@"Start time"];
     // Configure the cell.
     
     return cell;
