@@ -8,15 +8,14 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface DateResultsViewController ()
 
 @end
 
-@implementation ViewController
+@implementation DateResultsViewController
 
 @synthesize dateLabel = _dateLabel;
 @synthesize dayOfTheWeekLabel = _dayOfTheWeekLabel;
-@synthesize resultLabel = _resultLabel;
 //@synthesize curDate = _curDate;
 
 - (void)viewDidLoad
@@ -24,6 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //_curDate = [NSDate date];
+    _resultArray = [[NSMutableArray alloc] init];
     _curDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60*45];
     [self changeLabelDates];
 }
@@ -53,7 +53,7 @@
 -(void) changeResults{
     NSArray *newArray = [[NSArray alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventsCalendar" ofType:@"plist"]];
         
-     _resultLabel.text = @"";
+    [_resultArray removeAllObjects];
     
     for (int i = 0; i < [newArray count];i++)
     {
@@ -62,12 +62,11 @@
         if ([self isEqualWithoutTime:eventDate toDate:_curDate])
         {
             NSString *eventId = [[[newArray objectAtIndex:i]objectForKey:@"Calendar Event id"] stringValue];
-            _resultLabel.text = [_resultLabel.text stringByAppendingString:eventId];
+            [_resultArray addObject:eventId];
         }
     }
     
-    if ([_resultLabel.text isEqualToString:@""])
-        _resultLabel.text = @"No results";
+    [_resultTable reloadData];
     
 }
 
@@ -75,7 +74,6 @@
     NSTimeInterval dayinseconds = -24 * 60 * 60;
     _curDate = [_curDate dateByAddingTimeInterval:dayinseconds];
     [self changeLabelDates];
-    
 }
 
 - (IBAction)nextDayTouched {
@@ -94,6 +92,32 @@
     NSDate *date2FromString = [df dateFromString:date2String];
     
     return [date1FromString isEqualToDate:date2FromString];
+}
+
+// customize number of sections
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+// customize number of rows
+-(NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section{
+    return [_resultArray count];
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = (NSString *)[_resultArray objectAtIndex:indexPath.row];
+    // Configure the cell.
+    
+    return cell;
 }
 
 

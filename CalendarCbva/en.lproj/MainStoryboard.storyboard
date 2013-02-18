@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Date Results View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="DateResultsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,53 +55,67 @@
                                     <action selector="prevDayTouched" destination="2" eventType="touchDown" id="0LW-pF-Ezz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UON-Nf-G4G">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-PM-4LK">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="Eeo-um-NMq"/>
-                                    <constraint firstAttribute="width" constant="209" id="mmK-lb-Pw8"/>
+                                    <constraint firstAttribute="height" constant="175" id="Si9-5S-z8m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="lDn-gw-O76">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="0px-Ny-6Z3"/>
+                                    <outlet property="delegate" destination="2" id="tRz-Ga-37Q"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CDv-LY-Lff" firstAttribute="top" secondItem="3" secondAttribute="top" constant="195" id="1Un-lG-mP3"/>
-                            <constraint firstAttribute="trailing" secondItem="SoH-0Z-FGV" secondAttribute="trailing" constant="38" id="5u5-Qt-2Wu"/>
-                            <constraint firstItem="Hk5-UI-ovP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="60" id="FI5-8Y-CQ3"/>
-                            <constraint firstItem="Hk5-UI-ovP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="120" id="Key-4s-76d"/>
-                            <constraint firstAttribute="bottom" secondItem="njb-S7-az6" secondAttribute="bottom" constant="139" id="QFN-2W-BGt"/>
-                            <constraint firstItem="njb-S7-az6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="38" id="TCR-fa-YVp"/>
+                            <constraint firstItem="Hk5-UI-ovP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="78u-kk-I9F"/>
+                            <constraint firstItem="Hk5-UI-ovP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="31" id="8yA-py-evp"/>
+                            <constraint firstItem="CDv-LY-Lff" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9Wu-yA-8SV"/>
+                            <constraint firstAttribute="trailing" secondItem="SoH-0Z-FGV" secondAttribute="trailing" constant="29" id="OFe-f5-c4U"/>
+                            <constraint firstAttribute="bottom" secondItem="baJ-PM-4LK" secondAttribute="bottom" constant="57" id="Zby-Fu-In8"/>
+                            <constraint firstAttribute="trailing" secondItem="baJ-PM-4LK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aYu-33-QZX"/>
                             <constraint firstItem="njb-S7-az6" firstAttribute="baseline" secondItem="SoH-0Z-FGV" secondAttribute="baseline" type="default" id="crb-xf-0Z9"/>
-                            <constraint firstAttribute="bottom" secondItem="UON-Nf-G4G" secondAttribute="bottom" constant="43" id="hPn-XW-0Q0"/>
-                            <constraint firstItem="CDv-LY-Lff" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="50" id="ji5-Ba-BKc"/>
-                            <constraint firstItem="UON-Nf-G4G" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="vTG-uI-dhb"/>
+                            <constraint firstItem="CDv-LY-Lff" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" id="eOV-rW-kmV"/>
+                            <constraint firstItem="njb-S7-az6" firstAttribute="top" secondItem="3" secondAttribute="top" constant="152" id="qDI-nn-T5p"/>
+                            <constraint firstItem="baJ-PM-4LK" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qpO-Jo-JXp"/>
+                            <constraint firstItem="njb-S7-az6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ywc-L3-IwZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="Hk5-UI-ovP" id="KwX-q3-6qk"/>
                         <outlet property="dayOfTheWeekLabel" destination="CDv-LY-Lff" id="Ek4-Eo-eLc"/>
-                        <outlet property="resultLabel" destination="UON-Nf-G4G" id="RNa-Bo-8JV"/>
+                        <outlet property="resultTable" destination="baJ-PM-4LK" id="LaV-re-rW7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304" y="72"/>
         </scene>
     </scenes>
     <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        <class className="DateResultsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateResultsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="nextDayTouched"/>
                 <relationship kind="action" name="prevDayTouched"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="dayOfTheWeekLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultTable" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

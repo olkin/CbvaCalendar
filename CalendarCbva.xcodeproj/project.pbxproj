@@ -461,6 +461,7 @@
 				9321062016CE1B0C0097BCBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9321062116CE1B0C0097BCBB /* Build configuration list for PBXNativeTarget "CalendarCbvaTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +470,7 @@
 				9321062316CE1B0C0097BCBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

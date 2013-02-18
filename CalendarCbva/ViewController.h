@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface DateResultsViewController: UIViewController <UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
 @property (nonatomic, retain)  NSDate *curDate;
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 -(void) changeLabelDates;
 -(void) changeResults;
@@ -21,4 +21,7 @@
 - (IBAction)nextDayTouched;
 - (IBAction)prevDayTouched;
 
+@property (weak, nonatomic) IBOutlet UITableView *resultTable;
+
+@property NSMutableArray *resultArray;
 @end
