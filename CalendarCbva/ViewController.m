@@ -51,6 +51,7 @@
 }
 
 -(void) changeResults{
+    // save the array not to load it every time
     NSArray *newArray = [[NSArray alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventsCalendar" ofType:@"plist"]];
         
     [_resultArray removeAllObjects];
@@ -114,11 +115,22 @@
     }
     
     NSDictionary *result = (NSDictionary*)[_resultArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [[result objectForKey:@"event id"] stringValue];
+    cell.textLabel.text = [self getEventNameById:[[result objectForKey:@"event id"] integerValue]];
     cell.detailTextLabel.text = (NSString*)[result objectForKey:@"Start time"];
     // Configure the cell.
     
     return cell;
+}
+
+-(NSString*) getEventNameById:(NSUInteger)eventId{
+    // TODO: save the array not to load it every time
+    NSArray *newArray = [[NSArray alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Events" ofType:@"plist"]];
+
+    for (int i = 0; i < [newArray count]; i++)
+        if ([[[newArray objectAtIndex:i] objectForKey:@"Event ID"] integerValue] == eventId)
+            return [[newArray objectAtIndex:i]objectForKey:@"Event Name"];
+    
+    return @"";
 }
 
 
