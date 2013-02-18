@@ -25,6 +25,7 @@
     //_curDate = [NSDate date];
     _resultArray = [[NSMutableArray alloc] init];
     _curDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60*45];
+    _responseData = [NSMutableData data];
     [self changeLabelDates];
 }
 
@@ -67,6 +68,55 @@
     }
     
     [_resultTable reloadData];
+    
+    [self reloadWeather];
+}
+
+-(void) reloadWeather{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.wunderground.com/api/0b492bdf0241764b/conditions/q/YYC.json"]];
+    // TODO: save connection?
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+-(void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse*) response{
+    NSLog(@"Did receive response");
+    [_responseData setLength:0];
+}
+
+-(void) connection:(NSURLConnection *) connection didReceiveData:(NSData *)data{
+    NSLog(@"Did receive data");
+    [_responseData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"Did Fail with error");
+    NSLog(@"Connection failed with error %@", [error description]);
+}
+
+-(void) connectionDidFinishLoading:(NSURLConnection *)conenction{
+    NSLog(@"Did Finish loading");
+    NSLog(@"Succedded! Received %d bytes", [_responseData length]);
+    
+    // convert response to JSon
+    NSError *myError = nil;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableLeaves error:&myError];
+    
+    // show all values
+    for (id key in result){
+        id value = [result objectForKey:key];
+        NSString *keyAsString = (NSString*)key;
+        NSString *valueAsString = (NSString *)value;
+        
+        NSLog(@"%@:%@", keyAsString, valueAsString);
+    }
+    
+    //extract specific values
+    NSArray *specificResults =  [result objectForKey:@"results"];
+    
+    for (NSDictionary *specificResult in specificResults){
+        NSString *icon = [specificResult objectForKey:@"icon"];
+        NSLog(@"icon:%@", icon);
+    }
     
 }
 

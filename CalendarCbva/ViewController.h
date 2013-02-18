@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface DateResultsViewController:
-UIViewController <UITableViewDelegate>
+UIViewController <UITableViewDelegate, NSURLConnectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
 @property (nonatomic, retain)  NSDate *curDate;
+@property (nonatomic, strong) NSMutableData *responseData;
 
 -(void) changeLabelDates;
 -(void) changeResults;
