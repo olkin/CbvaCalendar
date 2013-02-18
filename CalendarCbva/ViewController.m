@@ -69,13 +69,13 @@
     
 }
 
-- (IBAction)prevDayTouched {
+- (IBAction)swipedLeft {
     NSTimeInterval dayinseconds = -24 * 60 * 60;
     _curDate = [_curDate dateByAddingTimeInterval:dayinseconds];
     [self changeLabelDates];
 }
 
-- (IBAction)nextDayTouched {
+- (IBAction)swipedRight {
     NSTimeInterval dayinseconds = 24 * 60 * 60;
     _curDate = [_curDate dateByAddingTimeInterval:dayinseconds];
     [self changeLabelDates];

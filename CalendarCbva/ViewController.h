@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DateResultsViewController: UIViewController <UITableViewDelegate>
+@interface DateResultsViewController:
+UIViewController <UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
@@ -18,8 +19,8 @@
 -(void) changeResults;
 -(bool) isEqualWithoutTime:(NSDate *)date1 toDate:(NSDate *)date2;
 
-- (IBAction)nextDayTouched;
-- (IBAction)prevDayTouched;
+- (IBAction)swipedRight;
+- (IBAction)swipedLeft;
 
 @property (weak, nonatomic) IBOutlet UITableView *resultTable;
 

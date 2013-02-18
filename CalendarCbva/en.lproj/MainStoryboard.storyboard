@@ -29,32 +29,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoH-0Z-FGV">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Next day">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextDayTouched" destination="2" eventType="touchDown" id="H8m-MF-dNV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njb-S7-az6">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Prev day">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="prevDayTouched" destination="2" eventType="touchDown" id="0LW-pF-Ezz"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-PM-4LK">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -90,19 +64,20 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Hk5-UI-ovP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="78u-kk-I9F"/>
                             <constraint firstItem="Hk5-UI-ovP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="31" id="8yA-py-evp"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9Wu-yA-8SV"/>
-                            <constraint firstAttribute="trailing" secondItem="SoH-0Z-FGV" secondAttribute="trailing" constant="29" id="OFe-f5-c4U"/>
                             <constraint firstAttribute="bottom" secondItem="baJ-PM-4LK" secondAttribute="bottom" constant="57" id="Zby-Fu-In8"/>
                             <constraint firstAttribute="trailing" secondItem="baJ-PM-4LK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aYu-33-QZX"/>
-                            <constraint firstItem="njb-S7-az6" firstAttribute="baseline" secondItem="SoH-0Z-FGV" secondAttribute="baseline" type="default" id="crb-xf-0Z9"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" id="eOV-rW-kmV"/>
-                            <constraint firstItem="njb-S7-az6" firstAttribute="top" secondItem="3" secondAttribute="top" constant="152" id="qDI-nn-T5p"/>
                             <constraint firstItem="baJ-PM-4LK" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qpO-Jo-JXp"/>
-                            <constraint firstItem="njb-S7-az6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ywc-L3-IwZ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4qb-dO-gTp" appends="YES" id="lrz-Af-dxS"/>
+                            <outletCollection property="gestureRecognizers" destination="WMA-xT-6jK" appends="YES" id="vGx-ql-d6z"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="Hk5-UI-ovP" id="KwX-q3-6qk"/>
@@ -111,25 +86,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="4qb-dO-gTp">
+                    <connections>
+                        <action selector="swipedRight" destination="2" id="fQI-Us-edw"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="WMA-xT-6jK">
+                    <connections>
+                        <action selector="swipedLeft" destination="2" id="Iwg-SQ-BWG"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="304" y="72"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DateResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateResultsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="nextDayTouched"/>
-                <relationship kind="action" name="prevDayTouched"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dayOfTheWeekLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
