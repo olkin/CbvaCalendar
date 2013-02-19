@@ -156,24 +156,32 @@
 
 // customize number of rows
 -(NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section{
-    return [_resultArray count];
+    // show at least 1 row (No events row)
+    return [_resultArray count] > 1? [_resultArray count]:1;
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        static NSString *CellIdentifier = @"Cell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if([_resultArray count] > 0)
+    {
+        NSDictionary *result = (NSDictionary*)[_resultArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = [self getEventNameById:[[result objectForKey:@"event id"] integerValue]];
+        cell.detailTextLabel.text = (NSString*)[result objectForKey:@"Start time"];
+        // Configure the cell.
+        
     }
-    
-    NSDictionary *result = (NSDictionary*)[_resultArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self getEventNameById:[[result objectForKey:@"event id"] integerValue]];
-    cell.detailTextLabel.text = (NSString*)[result objectForKey:@"Start time"];
-    // Configure the cell.
-    
+    else
+    {
+        cell.textLabel.text = @"No scheduled events";
+        cell.detailTextLabel.text = @"";
+    }
     return cell;
 }
 
