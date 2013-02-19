@@ -62,6 +62,11 @@
                                     <outlet property="delegate" destination="2" id="tRz-Ga-37Q"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Temperature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-fm-sFE">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -72,6 +77,8 @@
                             <constraint firstAttribute="bottom" secondItem="baJ-PM-4LK" secondAttribute="bottom" constant="57" id="Zby-Fu-In8"/>
                             <constraint firstAttribute="trailing" secondItem="baJ-PM-4LK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aYu-33-QZX"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" id="eOV-rW-kmV"/>
+                            <constraint firstAttribute="trailing" secondItem="SgB-fm-sFE" secondAttribute="trailing" constant="49" id="n7f-7i-cx7"/>
+                            <constraint firstItem="SgB-fm-sFE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="136" id="pdP-dU-nIa"/>
                             <constraint firstItem="baJ-PM-4LK" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qpO-Jo-JXp"/>
                         </constraints>
                         <connections>
@@ -83,6 +90,7 @@
                         <outlet property="dateLabel" destination="Hk5-UI-ovP" id="KwX-q3-6qk"/>
                         <outlet property="dayOfTheWeekLabel" destination="CDv-LY-Lff" id="Ek4-Eo-eLc"/>
                         <outlet property="resultTable" destination="baJ-PM-4LK" id="LaV-re-rW7"/>
+                        <outlet property="temperatureLabel" destination="SgB-fm-sFE" id="pHI-4x-zyW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -100,21 +108,6 @@
             <point key="canvasLocation" x="304" y="72"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DateResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateResultsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="swipedLeft"/>
-                <relationship kind="action" name="swipedRight"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dayOfTheWeekLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="resultTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

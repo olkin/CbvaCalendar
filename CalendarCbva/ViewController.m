@@ -100,7 +100,8 @@
     // convert response to JSon
     NSError *myError = nil;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableLeaves error:&myError];
-    
+   
+    /*
     // show all values
     for (id key in result){
         id value = [result objectForKey:key];
@@ -109,15 +110,15 @@
         
         NSLog(@"%@:%@", keyAsString, valueAsString);
     }
+     */
     
-    //extract specific values
-    NSArray *specificResults =  [result objectForKey:@"results"];
+    //NSInteger tempCelcius = [[result objectForKey:@"temp_c"] integerValue];
+    //NSLog(@"Temp in C = %d", tempCelcius);
+    NSDictionary* curDetails = [result objectForKey:@"current_observation"];
+    NSInteger curTemp = [[curDetails objectForKey:@"temp_c"] integerValue];
     
-    for (NSDictionary *specificResult in specificResults){
-        NSString *icon = [specificResult objectForKey:@"icon"];
-        NSLog(@"icon:%@", icon);
-    }
-    
+    //NSLog(@"Temp:%d", curTemp);
+    _temperatureLabel.text = [NSString stringWithFormat:@"%d C", curTemp];
 }
 
 - (IBAction)swipedLeft {
