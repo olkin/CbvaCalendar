@@ -26,7 +26,7 @@
     _resultArray = [[NSMutableArray alloc] init];
     _curDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60*45];
     _responseData = [NSMutableData data];
-    [self changeLabelDates];
+    [self updateContent];
     
     [self reloadWeather];
 }
@@ -37,7 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) changeLabelDates
+-(void) updateContent
 {
     // Do any additional setup after loading the view, typically from a nib.
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -50,11 +50,11 @@
     _dayOfTheWeekLabel.text = dayOfWeek;
     //_temperatureLabel.text=@"";
     
-    [self changeResults];
+    [self updateResults];
     
 }
 
--(void) changeResults{
+-(void) updateResults{
     // save the array not to load it every time
     NSArray *newArray = [[NSArray alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventsCalendar" ofType:@"plist"]];
         
@@ -128,13 +128,13 @@
 - (IBAction)swipedLeft {
     NSTimeInterval dayinseconds = -24 * 60 * 60;
     _curDate = [_curDate dateByAddingTimeInterval:dayinseconds];
-    [self changeLabelDates];
+    [self updateContent];
 }
 
 - (IBAction)swipedRight {
     NSTimeInterval dayinseconds = 24 * 60 * 60;
     _curDate = [_curDate dateByAddingTimeInterval:dayinseconds];
-    [self changeLabelDates];
+    [self updateContent];
 }
 
 -(bool) isEqualWithoutTime:(NSDate *)date1 toDate:(NSDate *)date2{

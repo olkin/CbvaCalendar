@@ -17,8 +17,8 @@ UIViewController <UITableViewDelegate, NSURLConnectionDelegate>
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 
--(void) changeLabelDates;
--(void) changeResults;
+-(void) updateContent;
+-(void) updateResults;
 -(bool) isEqualWithoutTime:(NSDate *)date1 toDate:(NSDate *)date2;
 
 - (IBAction)swipedRight;
