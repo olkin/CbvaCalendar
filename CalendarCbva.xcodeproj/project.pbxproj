@@ -25,6 +25,7 @@
 		9321061B16CE1B0C0097BCBB /* CalendarCbvaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321061A16CE1B0C0097BCBB /* CalendarCbvaTests.m */; };
 		9321062616CE1B2B0097BCBB /* Events.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9321062416CE1B2B0097BCBB /* Events.plist */; };
 		9321062716CE1B2B0097BCBB /* EventsCalendar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9321062516CE1B2B0097BCBB /* EventsCalendar.plist */; };
+		9381F36116D3318900AD801B /* vb_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9381F36016D3318900AD801B /* vb_background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		9321061A16CE1B0C0097BCBB /* CalendarCbvaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarCbvaTests.m; sourceTree = "<group>"; };
 		9321062416CE1B2B0097BCBB /* Events.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Events.plist; sourceTree = "<group>"; };
 		9321062516CE1B2B0097BCBB /* EventsCalendar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EventsCalendar.plist; sourceTree = "<group>"; };
+		9381F36016D3318900AD801B /* vb_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vb_background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		932105F016CE1B0C0097BCBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9381F36016D3318900AD801B /* vb_background.jpg */,
 				9321062416CE1B2B0097BCBB /* Events.plist */,
 				9321062516CE1B2B0097BCBB /* EventsCalendar.plist */,
 				932105F116CE1B0C0097BCBB /* CalendarCbva-Info.plist */,
@@ -244,6 +247,7 @@
 				9321060316CE1B0C0097BCBB /* MainStoryboard.storyboard in Resources */,
 				9321062616CE1B2B0097BCBB /* Events.plist in Resources */,
 				9321062716CE1B2B0097BCBB /* EventsCalendar.plist in Resources */,
+				9381F36116D3318900AD801B /* vb_background.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

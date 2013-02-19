@@ -27,6 +27,8 @@
     _curDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60*45];
     _responseData = [NSMutableData data];
     [self changeLabelDates];
+    
+    [self reloadWeather];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,6 +48,7 @@
     
     _dateLabel.text = dateString;
     _dayOfTheWeekLabel.text = dayOfWeek;
+    //_temperatureLabel.text=@"";
     
     [self changeResults];
     
@@ -69,7 +72,8 @@
     
     [_resultTable reloadData];
     
-    [self reloadWeather];
+    //[self reloadWeather];
+
 }
 
 -(void) reloadWeather{

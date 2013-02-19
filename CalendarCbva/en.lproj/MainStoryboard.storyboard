@@ -12,6 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vb_background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DVt-ar-VGU"/>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hk5-UI-ovP">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="jRb-xp-abQ"/>
@@ -30,7 +31,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-PM-4LK">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="Si9-5S-z8m"/>
                                 </constraints>
@@ -55,6 +55,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -73,12 +74,16 @@
                         <constraints>
                             <constraint firstItem="Hk5-UI-ovP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="78u-kk-I9F"/>
                             <constraint firstItem="Hk5-UI-ovP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="31" id="8yA-py-evp"/>
+                            <constraint firstItem="DVt-ar-VGU" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="9KQ-Kz-9aT"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9Wu-yA-8SV"/>
+                            <constraint firstItem="DVt-ar-VGU" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="KN9-zx-999"/>
+                            <constraint firstItem="DVt-ar-VGU" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="M3h-za-Q58"/>
+                            <constraint firstItem="DVt-ar-VGU" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="O9b-hL-r5J"/>
                             <constraint firstAttribute="bottom" secondItem="baJ-PM-4LK" secondAttribute="bottom" constant="57" id="Zby-Fu-In8"/>
                             <constraint firstAttribute="trailing" secondItem="baJ-PM-4LK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aYu-33-QZX"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" id="eOV-rW-kmV"/>
+                            <constraint firstItem="SgB-fm-sFE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="136" id="h1H-Uj-65Z"/>
                             <constraint firstAttribute="trailing" secondItem="SgB-fm-sFE" secondAttribute="trailing" constant="49" id="n7f-7i-cx7"/>
-                            <constraint firstItem="SgB-fm-sFE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="136" id="pdP-dU-nIa"/>
                             <constraint firstItem="baJ-PM-4LK" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qpO-Jo-JXp"/>
                         </constraints>
                         <connections>
@@ -108,6 +113,25 @@
             <point key="canvasLocation" x="304" y="72"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="vb_background.jpg" width="385" height="385"/>
+    </resources>
+    <classes>
+        <class className="DateResultsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="swipedLeft"/>
+                <relationship kind="action" name="swipedRight"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dayOfTheWeekLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="resultTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="temperatureLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
