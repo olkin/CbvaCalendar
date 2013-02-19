@@ -72,22 +72,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="stb-xk-NTo">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="7bQ-L7-hvV"/>
+                                    <constraint firstAttribute="height" constant="121" id="wzC-J8-Wq7"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Hk5-UI-ovP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="1V9-vF-H85"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5vE-em-Zuf"/>
+                            <constraint firstItem="SgB-fm-sFE" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5vU-fk-BuO"/>
                             <constraint firstItem="DVt-ar-VGU" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="6hU-c4-HSM"/>
                             <constraint firstItem="Hk5-UI-ovP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="78u-kk-I9F"/>
                             <constraint firstAttribute="trailing" secondItem="baJ-PM-4LK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="84x-aV-mwx"/>
+                            <constraint firstItem="SgB-fm-sFE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="83" id="JJJ-2D-kI3"/>
                             <constraint firstItem="DVt-ar-VGU" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Mq3-Jb-tN8"/>
                             <constraint firstItem="CDv-LY-Lff" firstAttribute="top" secondItem="Hk5-UI-ovP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="SPb-WV-Vmk"/>
-                            <constraint firstItem="baJ-PM-4LK" firstAttribute="top" secondItem="SgB-fm-sFE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Skp-aM-CyW"/>
                             <constraint firstItem="baJ-PM-4LK" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="T2s-tE-PRG"/>
-                            <constraint firstAttribute="trailing" secondItem="SgB-fm-sFE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="T4F-ZC-aJu"/>
                             <constraint firstItem="DVt-ar-VGU" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Tey-IH-fOK"/>
-                            <constraint firstItem="SgB-fm-sFE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="193" id="hGw-Od-gEl"/>
+                            <constraint firstItem="stb-xk-NTo" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZWG-O4-K4Y"/>
+                            <constraint firstItem="stb-xk-NTo" firstAttribute="top" secondItem="3" secondAttribute="top" constant="107" id="cvQ-cl-8OX"/>
+                            <constraint firstItem="baJ-PM-4LK" firstAttribute="top" secondItem="stb-xk-NTo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lPl-YZ-cfZ"/>
                             <constraint firstItem="DVt-ar-VGU" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="zvU-mh-DdI"/>
                         </constraints>
                         <connections>

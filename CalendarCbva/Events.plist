@@ -9,6 +9,8 @@
 		<string>League Co-ed 2s</string>
 		<key>Event Short Name</key>
 		<string>C2</string>
+		<key>Default Event Duration</key>
+		<integer>3</integer>
 	</dict>
 	<dict>
 		<key>Event ID</key>
@@ -17,40 +19,50 @@
 		<string>League Co-ed 3s</string>
 		<key>Event Short Name</key>
 		<string>C3</string>
+		<key>Default Event Duration</key>
+		<string>3</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>2</integer>
 		<key>Event Name</key>
 		<string>League Co-ed 4s</string>
 		<key>Event Short Name</key>
 		<string>C4</string>
+    	<key>Default Event Duration</key>
+		<integer>3</integer>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>3</integer>
 		<key>Event Name</key>
 		<string>League W 2s</string>
 		<key>Event Short Name</key>
 		<string>W2</string>
+    	<key>Default Event Duration</key>
+		<integer>3</integer>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>4</integer>
 		<key>Event Name</key>
 		<string>League M 2s</string>
 		<key>Event Short Name</key>
 		<string>M2</string>
+    	<key>Default Event Duration</key>
+		<integer>3</integer>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>5</integer>
 		<key>Event Name</key>
 		<string>Drop-in</string>
 		<key>Event Short Name</key>
 		<string>Drop-in</string>
+    	<key>Default Event Duration</key>
+		<integer>3</integer>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>6</integer>
 		<key>Event Name</key>
@@ -58,7 +70,7 @@
 		<key>Event Short Name</key>
 		<string>AVA</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>7</integer>
 		<key>Event Name</key>
@@ -66,13 +78,15 @@
 		<key>Event Short Name</key>
 		<string>AVA Youth</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>Event ID</key>
 		<integer>8</integer>
 		<key>Event Name</key>
 		<string>Holiday</string>
 		<key>Event Short Name</key>
 		<string>Holiday</string>
+        <key>Default Event Duration</key>
+        <integer>0</integer>
 	</dict>
 </array>
 </plist>
