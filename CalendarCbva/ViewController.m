@@ -120,9 +120,11 @@
     //NSLog(@"Temp in C = %d", tempCelcius);
     NSDictionary* curDetails = [result objectForKey:@"current_observation"];
     NSInteger curTemp = [[curDetails objectForKey:@"temp_c"] integerValue];
+  
+    NSMutableString *weatherResult = [[NSMutableString alloc]initWithFormat:@"%d\u00B0C",curTemp];
     
     //NSLog(@"Temp:%d", curTemp);
-    _temperatureLabel.text = [NSString stringWithFormat:@"%d C", curTemp];
+    _temperatureLabel.text = (NSString*)weatherResult;
 }
 
 - (IBAction)swipedLeft {
