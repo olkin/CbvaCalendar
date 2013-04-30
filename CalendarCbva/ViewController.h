@@ -13,9 +13,11 @@ UIViewController <UITableViewDelegate, NSURLConnectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noActivitiesLabel;
 @property (nonatomic, retain)  NSDate *curDate;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) NSMutableDictionary *weatherDetails;
 
 -(void) updateContent;
 -(void) updateResults;

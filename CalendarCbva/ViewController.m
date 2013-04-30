@@ -14,8 +14,8 @@
 
 @implementation DateResultsViewController
 
-@synthesize dateLabel = _dateLabel;
-@synthesize dayOfTheWeekLabel = _dayOfTheWeekLabel;
+//@synthesize dateLabel = _dateLabel;
+//@synthesize dayOfTheWeekLabel = _dayOfTheWeekLabel;
 //@synthesize curDate = _curDate;
 
 - (void)viewDidLoad
@@ -26,9 +26,11 @@
     _resultArray = [[NSMutableArray alloc] init];
     _curDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60*45];
     _responseData = [NSMutableData data];
+    _weatherDetails = [[NSMutableDictionary alloc] init];
     [self updateContent];
     
-    [self reloadWeather];
+    //[self reloadWeather];
+    [self reloadTeams];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,29 +57,23 @@
 }
 
 -(void) updateResults{
-    // save the array not to load it every time
-    NSArray *newArray = [[NSArray alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventsCalendar" ofType:@"plist"]];
-        
-    [_resultArray removeAllObjects];
-    
-    for (int i = 0; i < [newArray count];i++)
-    {
-        NSDate *eventDate = [[newArray objectAtIndex:i]objectForKey:@"Date"];
-        
-        if ([self isEqualWithoutTime:eventDate toDate:_curDate])
-        {
-            [_resultArray addObject:[newArray objectAtIndex:i]];
-        }
-    }
     
     [_resultTable reloadData];
-    
+
     //[self reloadWeather];
 
 }
 
+/*
 -(void) reloadWeather{
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.wunderground.com/api/0b492bdf0241764b/conditions/q/YYC.json"]];
+    // TODO: save connection?
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+ */
+
+-(void) reloadTeams{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/teams.json"]];
     // TODO: save connection?
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
@@ -103,28 +99,9 @@
     
     // convert response to JSon
     NSError *myError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableLeaves error:&myError];
-   
-    /*
-    // show all values
-    for (id key in result){
-        id value = [result objectForKey:key];
-        NSString *keyAsString = (NSString*)key;
-        NSString *valueAsString = (NSString *)value;
-        
-        NSLog(@"%@:%@", keyAsString, valueAsString);
-    }
-     */
+    _resultArray = [[NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableLeaves error:&myError] mutableCopy];
     
-    //NSInteger tempCelcius = [[result objectForKey:@"temp_c"] integerValue];
-    //NSLog(@"Temp in C = %d", tempCelcius);
-    NSDictionary* curDetails = [result objectForKey:@"current_observation"];
-    NSInteger curTemp = [[curDetails objectForKey:@"temp_c"] integerValue];
-  
-    NSMutableString *weatherResult = [[NSMutableString alloc]initWithFormat:@"%d\u00B0C",curTemp];
-    
-    //NSLog(@"Temp:%d", curTemp);
-    _temperatureLabel.text = (NSString*)weatherResult;
+    [self updateResults];
 }
 
 - (IBAction)swipedLeft {
@@ -159,32 +136,74 @@
 // customize number of rows
 -(NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section{
     // show at least 1 row (No events row)
-    return [_resultArray count] > 1? [_resultArray count]:1;
+    if (tableView == _resultTable){
+        return [_resultArray count] > 1? [_resultArray count]:1;
+    }
+    else
+        return 2;
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView == _resultTable)
+    {
         static NSString *CellIdentifier = @"Cell";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-    
-    if([_resultArray count] > 0)
-    {
-        NSDictionary *result = (NSDictionary*)[_resultArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = [self getEventNameById:[[result objectForKey:@"event id"] integerValue]];
-        cell.detailTextLabel.text = (NSString*)[result objectForKey:@"Start time"];
-        // Configure the cell.
         
+        if([_resultArray count] > 0)
+        {
+            _resultTable.hidden = false;
+            _noActivitiesLabel.hidden = true;
+            NSDictionary *result = (NSDictionary*)[_resultArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = (NSString *) [result objectForKey:@"name"];
+            cell.detailTextLabel.text = (NSString*)[result objectForKey:@"team_type"];
+            
+        }
+        else
+        {
+            _resultTable.hidden = true;
+            _noActivitiesLabel.hidden = false;
+        }
+        return cell;
     }
-    else
-    {
-        cell.textLabel.text = @"No scheduled events";
-        cell.detailTextLabel.text = @"";
+    else{
+        
+        static NSString *CellIdentifier = @"WeatherCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        // Configure the cell;
+        
+        if ([indexPath row] == 0)
+        {
+            // DO in loop; program number of times
+            UILabel *label = (UILabel *)[cell viewWithTag:1];
+            label.text = @"";
+            
+            label = (UILabel *)[cell viewWithTag:2];
+            label.text = @"18:00";
+            
+            label = (UILabel *)[cell viewWithTag:3];
+            label.text = @"19:00";
+            
+            label = (UILabel *)[cell viewWithTag:4];
+            label.text = @"20:00";
+            
+            label = (UILabel *)[cell viewWithTag:5];
+            label.text = @"";
+            
+        }
+        
+        return cell;
     }
-    return cell;
 }
 
 -(NSString*) getEventNameById:(NSUInteger)eventId{
